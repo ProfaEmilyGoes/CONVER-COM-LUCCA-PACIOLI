@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converse com Luca Pacioli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        #chatbox {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            padding: 10px;
+            background: #fff;
+            overflow-y: scroll;
+        }
+        #userInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Converse com Luca Pacioli sobre Contabilidade</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Faça uma pergunta para Luca...">
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+
+        function sendMessage() {
+            const userMessage = document.getElementById('userInput').value;
+            if (userMessage.trim() === '') return;
+
+            // Exibe a mensagem do usuário
+            chatbox.innerHTML += '<p><strong>Você:</strong> ' + userMessage + '</p>';
+
+            // Resposta simulada de Luca Pacioli
+            const response = getLucaResponse(userMessage);
+            chatbox.innerHTML += '<p><strong>Luca Pacioli:</strong> ' + response + '</p>';
+
+            // Limpa o campo de input
+            document.getElementById('userInput').value = '';
+        }
+
+        function getLucaResponse(userMessage) {
+            // Simulação de respostas básicas de Luca Pacioli
+            if (userMessage.toLowerCase().includes('contabilidade')) {
+                return 'Ah, a contabilidade! Eu fui pioneiro ao publicar o método das partidas dobradas. O que mais gostaria de saber?';
+            } else if (userMessage.toLowerCase().includes('partidas dobradas')) {
+                return 'O sistema de partidas dobradas é fundamental para manter os débitos e créditos sempre equilibrados.';
+            } else {
+                return 'Desculpe, não entendi sua pergunta. Pergunte-me algo sobre contabilidade!';
+            }
+        }
+    </script>
+</body>
+</html>
